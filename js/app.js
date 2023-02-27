@@ -4,7 +4,7 @@
 Write a function called sum() that takes in two numbers as arguments and then returns an array where the first element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this example and uses the values that were input into the function:
 
 "The sum of 4 and 7 is 11."
-
+'The sum of 4 and 7 is 11.'
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
@@ -55,7 +55,8 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
   let product = multiply(multiply(a, b)[0], c)[0];
-  let sumation = sum(sum(a, b)[0], c)[0];
+  let sum1 = sum(a, b)[0];
+  let sumation = sum(sum1, c)[0];
   let sumationString = a + ' and ' + b + ' and ' + c + ' sum to ' + sumation + '.';
   let productString = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
   return [sumation, product, sumationString, productString];
@@ -84,6 +85,7 @@ function sumArray(sumArr) { //eslint-disable-line
   for (let i = 0; i < sumArr.length; i++) {
     sum1 = sum(sum1, sumArr[i])[0];
   }
+
   let sumString = sumArr.toString() + ' was passed in as an array of numbers, and ' + sum1 + ' is their sum.';
   return [sum1, sumString];
 }
@@ -108,7 +110,7 @@ Test this function by hand in the console to get it working, and when you think 
 function multiplyArray(multArr) { //eslint-disable-line
   let product = 1;
   for (let i = 0; i < multArr.length; i++) {
-    product *= multArr[i];
+    product = multiply(product, multArr[i])[0];
   }
   let productString = 'The numbers ' + multArr.toString() + ' have a product of ' + product + '.';
   return [product, productString];
